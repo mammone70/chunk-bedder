@@ -1,17 +1,19 @@
-import { IsUrl, IsUUID } from "class-validator";
+import { IsString } from "class-validator";
 
 export class ChunkBedderDTO {
 
     /**
      * Document ID
      */
-    @IsUUID()
+    // @IsUUID("4")
+    @IsString()
     documentId : string;
 
     /**
      * URL of stored file
      */
-    @IsUrl()
-    url : URL;
+    // @IsUrl()
+    @IsString()
+    url : string;
 
 }

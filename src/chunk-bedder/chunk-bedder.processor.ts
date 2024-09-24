@@ -12,7 +12,7 @@ export class ChunkBedderProcessor extends WorkerHost {
         switch (job.name){
             case CHUNK_BEDDER_QUEUE:
                 this.logger.log(`Processing job id ${job.id}`);
-                this.logger.debug(`Data : ${JSON.stringify(job.data)}`);
+                this.logger.debug(`Data : ${JSON.stringify(job)}`);
 
                 //artificial delay to simulate long running process
                 await new Promise<void>((resolve) => setTimeout(() => resolve(), 8000));

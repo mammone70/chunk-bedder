@@ -15,5 +15,6 @@ export class ChunkBedderController {
             CHUNK_BEDDER_QUEUE,
             chunkBedderDTO,
         );
+        return {};
     }
 }
