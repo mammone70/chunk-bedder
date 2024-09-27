@@ -4,10 +4,13 @@ import { AppService } from './app.service';
 import { BullModule } from '@nestjs/bullmq';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ChunkBedderModule } from './chunk-bedder/chunk-bedder.module';
+import { DatabaseModule } from './database/database.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      isGlobal : true,
+    }),
     BullModule.forRootAsync({
       imports : [ConfigModule],
       useFactory: async (configService: ConfigService) => ({
@@ -19,6 +22,7 @@ import { ChunkBedderModule } from './chunk-bedder/chunk-bedder.module';
       inject : [ConfigService],
     }),
     ChunkBedderModule,
+    DatabaseModule,
   ],
   controllers: [AppController],
   providers: [AppService],
